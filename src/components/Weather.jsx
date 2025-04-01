@@ -44,7 +44,7 @@ const Weather = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-5 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
+    <div className="flex flex-col items-center justify-center min-h-screen min-w-[90vw] p-5 bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
       <h1 className="text-4xl font-bold mb-6">🌤 Live Weather App</h1>
       
       <div className="relative flex gap-4 w-full max-w-lg">
