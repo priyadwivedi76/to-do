@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import TodoCard from './TodoCard';
 import { useSelector } from 'react-redux';
 const Home = () => {
-    const tasks = useSelector((state) => state.tasks);
+    const tasks = useSelector((state) => state.tasks.tasks) || [];  
     const navigate=useNavigate();
     const handleClick=()=>{
         navigate('/form');
     }
+    console.log(typeof tasks)
     return (
       <>
       <div className="main-section">
@@ -18,12 +19,11 @@ const Home = () => {
         </div>
         {/* <FormTask /> */}
         <div className="container">
-            {tasks.map((item,index)=>{
-                const {title,id,description,date}=item
+            {tasks && tasks.map((item,index)=>{
                 return (
-                 <>  
-                <TodoCard key={index} title={title} id={id} description={description} date={date} />
-                </> 
+                  <>  
+                    <TodoCard key={item.id} title={item.title} description={item.description} date={item.date} task={item} />
+                  </> 
                 )
             })}
         </div>
