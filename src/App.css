@@ -17,10 +17,12 @@ body {
     flex-direction: column;
   }
   .container{
+    margin: 30px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    gap:10px;
+    gap:30px;
   }
 
   .main-section h1{
@@ -29,11 +31,12 @@ body {
     flex-direction: row;
   }
   .todo-container {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(240, 235, 235);
     padding: 20px;
     border-radius: 8px;
     width: 90%;
-    max-width: 400px;
+    max-width: 500px;
+    margin: 10px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }

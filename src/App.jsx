@@ -1,19 +1,17 @@
 import React from "react";
-import TodoCard from "./components/TodoCard";
-import "./App.css"; // Ensure you create a styles.css file for styling
+import { Route,Routes } from "react-router-dom";
+import Home from "./components/Home";
 import FormTask from "./components/FormTask";
+import "./App.css"; // Ensure you create a styles.css file for styling
 function App() {
-  return (
+  return(
     <>
-    <div className="main-section">
-      <h1>My Todo App</h1>
-      <FormTask />
-      <div className="container">
-        <TodoCard/>
-      </div>
-    </div>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/form' element={<FormTask/>}/>
+    </Routes>
     </>
-  );
+  )
 }
 
 export default App;
