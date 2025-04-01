@@ -10,6 +10,10 @@ A simple Todo App built with React and Redux that allows users to manage tasks e
 - Data persistence using Redux
 - Smooth UI with Tailwind CSS
 
+## Screenshots
+
+![App Screenshot](https://github.com/priyadwivedi76/to-do/blob/b52c27325417d4a2d17be80e0a561d2b745becc3/Screenshot%202025-04-02%20003828.png)
+
 ## Installation
 
 1. Clone the repository:
