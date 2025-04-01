@@ -9,7 +9,7 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      state.tasks.push({ id: Date.now(), ...action.payload }); // Ensure unique ID
+      state.tasks.push({ id: Date.now(), ...action.payload });
     },
     editTask: (state, action) => {
       const { id, updatedTask } = action.payload;
@@ -17,6 +17,7 @@ const taskSlice = createSlice({
       if (existingTask) {
         existingTask.title = updatedTask.title;
         existingTask.description = updatedTask.description;
+        existingTask.priority = updatedTask.priority; // Update priority
       }
     },
     deleteTask: (state, action) => {
@@ -27,4 +28,5 @@ const taskSlice = createSlice({
 
 export const { addTask, editTask, deleteTask } = taskSlice.actions;
 export default taskSlice.reducer;
+
 
