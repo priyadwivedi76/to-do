@@ -4,70 +4,78 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { addTask, editTask } from '../redux/slices/taskSlice';
 
 const FormTask = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const editingTask = location.state?.task || null;
-  
-  const [title, setTitle] = useState(editingTask ? editingTask.title : '');
-  const [description, setDescription] = useState(editingTask ? editingTask.description : '');
-  const [priority, setPriority] = useState(editingTask ? editingTask.priority : 'Medium');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
+    
+    const editingTask = location.state?.task || null;
 
-  useEffect(() => {
-    if (editingTask) {
-      setTitle(editingTask.title);
-      setDescription(editingTask.description);
-      setPriority(editingTask.priority);
-    }
-  }, [editingTask]);
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [priority, setPriority] = useState('Medium');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!title.trim()) return;
+    useEffect(() => {
+        if (editingTask) {
+            setTitle(editingTask.title);
+            setDescription(editingTask.description);
+            setPriority(editingTask.priority || 'Medium');
+        }
+    }, [editingTask]);
 
-    if (editingTask) {
-      dispatch(editTask({ id: editingTask.id, updatedTask: { title, description, priority } }));
-    } else {
-      dispatch(addTask({ title, description, priority, date: new Date().toLocaleDateString() }));
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!title.trim()) return;
 
-    navigate('/');
-  };
+        if (editingTask) {
+            dispatch(editTask({ id: editingTask.id, updatedTask: { title, description, priority } }));
+        } else {
+            dispatch(addTask({ id: Date.now(), title, description, priority, date: new Date().toLocaleDateString() }));
+        }
 
-  return (
-    <>
-      <h1 className='text-4xl mb-10 font-bold'>Add your Information</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Task Title"
-          className="p-2 bg-gray-700 text-gray-300 rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Task Description"
-          className="p-2 bg-gray-700 text-gray-300 rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-          className="p-2 bg-gray-700 text-gray-300 rounded border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="High">🔥 High</option>
-          <option value="Medium">⚡ Medium</option>
-          <option value="Low">🟢 Low</option>
-        </select>
-        <button className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-          {editingTask ? 'Update Task' : 'Add Task'}
-        </button>
-      </form>
-    </>
-  );
+        navigate('/');
+    };
+
+    return (
+        <div className="max-w-xl mx-auto mt-10 p-6 bg-gray-100 shadow-lg rounded-lg">
+            <h1 className="text-2xl font-bold mb-5 text-gray-900 text-center">
+                {editingTask ? 'Edit Task' : 'Add New Task'}
+            </h1>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Enter Task Title"
+                    className="p-3 text-gray-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <textarea
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Enter Task Description"
+                    className="p-3 border text-gray-600 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <div className="flex items-center justify-between">
+                    <label className="text-gray-600 font-medium">Priority:</label>
+                    <select
+                        value={priority}
+                        onChange={(e) => setPriority(e.target.value)}
+                        className="p-2 text-gray-600 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    >
+                        <option value="High">🔥 High</option>
+                        <option value="Medium">⚡ Medium</option>
+                        <option value="Low">✅ Low</option>
+                    </select>
+                </div>
+                <button 
+                    type="submit" 
+                    className="mt-3 bg-blue-500 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition">
+                    {editingTask ? 'Update Task' : 'Add Task'}
+                </button>
+            </form>
+        </div>
+    );
 };
 
 export default FormTask;
+
 

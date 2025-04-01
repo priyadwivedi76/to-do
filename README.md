@@ -1,12 +1,52 @@
-# React + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+A simple Todo App built with React and Redux that allows users to manage tasks efficiently. It includes task creation, editing, deletion, prioritization, and authentication using session storage.
 
-Currently, two official plugins are available:
+## Features
+- User authentication (Signup & Login)
+- Task management (Add, Edit, Delete tasks)
+- Task prioritization (High, Medium, Low)
+- Data persistence using Redux
+- Smooth UI with Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/todo-app.git
+   cd todo-app
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm start
+   ```
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Usage
+- **Signup:** Register with a username and password.
+- **Login:** Use your credentials to log in.
+- **Add Task:** Click the 'Add' button to create a new task.
+- **Edit Task:** Click 'Edit' to modify an existing task.
+- **Delete Task:** Click 'Delete' to remove a task.
+- **Prioritize Task:** Assign priority levels (High, Medium, Low) to tasks.
+
+## Technologies Used
+- React.js
+- Redux Toolkit
+- React Router
+- Tailwind CSS
+
+## Future Enhancements
+- Add due date reminders
+- Implement a backend with database storage
+- Enable drag-and-drop task management
+
+## License
+This project is licensed under the MIT License.
+
+---
+**Happy Coding! 🚀**

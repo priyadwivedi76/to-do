@@ -23,7 +23,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-pink-600">
+    <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-3xl font-bold text-center text-gray-700 mb-6">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">
@@ -32,7 +32,7 @@ const Login = () => {
             placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+            className="w-full text-gray-600 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
             required
           />
           <input
@@ -40,7 +40,7 @@ const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-3 text-gray-600 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
             required
           />
           <button 

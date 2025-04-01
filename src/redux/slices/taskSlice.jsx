@@ -9,15 +9,13 @@ const taskSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action) => {
-      state.tasks.push({ id: Date.now(), ...action.payload });
+      state.tasks.push(action.payload);
     },
     editTask: (state, action) => {
       const { id, updatedTask } = action.payload;
-      const existingTask = state.tasks.find(task => task.id === id);
-      if (existingTask) {
-        existingTask.title = updatedTask.title;
-        existingTask.description = updatedTask.description;
-        existingTask.priority = updatedTask.priority; // Update priority
+      const index = state.tasks.findIndex(task => task.id === id);
+      if (index !== -1) {
+        state.tasks[index] = { ...state.tasks[index], ...updatedTask };
       }
     },
     deleteTask: (state, action) => {
@@ -28,5 +26,6 @@ const taskSlice = createSlice({
 
 export const { addTask, editTask, deleteTask } = taskSlice.actions;
 export default taskSlice.reducer;
+
 
 

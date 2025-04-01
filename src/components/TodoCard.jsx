@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { deleteTask } from '../redux/slices/taskSlice';
 
 const priorityColors = {
@@ -14,7 +14,7 @@ const TodoCard = ({ task }) => {
   const dispatch = useDispatch();
 
   return (
-    <Link to={navigate(`/learn/${task.id}`)} className="bg-white px-5 py-4 rounded shadow flex flex-col gap-2 hover:bg-gray-100 transition ease-in-out transform hover:scale-105">
+    <div className="bg-white px-5 py-4 rounded shadow flex flex-col gap-2 hover:bg-gray-100 transition ease-in-out transform hover:scale-105">
       <div className="flex justify-between items-center">
         <h3 className="lg:text-xl md:text-xl text-md font-semibold text-gray-500">{task.title}</h3>
         <span className={`text-white px-2 py-1 rounded ${priorityColors[task.priority]}`}>
@@ -35,11 +35,17 @@ const TodoCard = ({ task }) => {
             className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition">
             Delete
           </button>
+          <button 
+            onClick={() => navigate(`/learn/${task.id}`)} 
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+            Learn More
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
 export default TodoCard;
+
 
