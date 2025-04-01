@@ -13,7 +13,8 @@ A simple Todo App built with React and Redux that allows users to manage tasks e
 ## Screenshots
 
 ![App Screenshot](https://github.com/priyadwivedi76/to-do/blob/b52c27325417d4a2d17be80e0a561d2b745becc3/Screenshot%202025-04-02%20003828.png)
-
+![App Screenshot](https://github.com/priyadwivedi76/to-do/blob/c71ec389ed0634b564b13222a7aa803f0941f2a5/Screenshot%202025-04-02%20004103.png)
+![App Screenshot](https://github.com/priyadwivedi76/to-do/blob/c71ec389ed0634b564b13222a7aa803f0941f2a5/Screenshot%202025-04-02%20004215.png)
 ## Installation
 
 1. Clone the repository:
