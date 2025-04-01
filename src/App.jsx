@@ -1,24 +1,18 @@
 import React from "react";
-import { motion } from "framer-motion";
+import TodoCard from "./components/TodoCard";
 import "./App.css"; // Ensure you create a styles.css file for styling
-
+import FormTask from "./components/FormTask";
 function App() {
   return (
-    <div className="todo-container">
-      <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        To-Do List
-      </motion.h1>
-      <div className="task-input">
-        <input type="text" placeholder="Enter a task..." />
-        <button>Add Task</button>
+    <>
+    <div className="main-section">
+      <h1>My Todo App</h1>
+      <FormTask />
+      <div className="container">
+        <TodoCard/>
       </div>
-      <ul className="task-list">
-        <motion.li initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }}>
-          Sample Task
-          <button>❌</button>
-        </motion.li>
-      </ul>
     </div>
+    </>
   );
 }
 
