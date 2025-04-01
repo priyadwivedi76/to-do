@@ -1,8 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import TodoCard from './TodoCard';
-import { Todo } from '../utils/data';
+import { useSelector } from 'react-redux';
 const Home = () => {
+    const tasks = useSelector((state) => state.tasks);
     const navigate=useNavigate();
     const handleClick=()=>{
         navigate('/form');
@@ -17,7 +18,7 @@ const Home = () => {
         </div>
         {/* <FormTask /> */}
         <div className="container">
-            {Todo.map((item,index)=>{
+            {tasks.map((item,index)=>{
                 const {title,id,description,date}=item
                 return (
                  <>  
