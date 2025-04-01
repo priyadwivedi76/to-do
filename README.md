@@ -28,7 +28,7 @@ A simple Todo App built with React and Redux that allows users to manage tasks e
    ```
 3. Start the development server:
    ```sh
-   npm start
+   npm run dev
    ```
 
 ## Usage
